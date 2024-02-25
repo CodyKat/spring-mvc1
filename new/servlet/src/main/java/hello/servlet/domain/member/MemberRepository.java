@@ -12,8 +12,11 @@ public class MemberRepository {
 
     private static final MemberRepository instance = new MemberRepository();
 
-    private MemberRepository getInstance(){
+    public static MemberRepository getInstance(){
         return instance;
+    }
+
+    private MemberRepository() {
     }
 
     public Member save(Member member) {
@@ -28,5 +31,9 @@ public class MemberRepository {
 
     public List<Member> findAll() {
         return new ArrayList<>(store.values());
+    }
+
+    public void clearStore() {
+        store.clear();
     }
 }
